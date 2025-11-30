@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q6 Placements</title>
+</head>
+
+<body>
+    <h1>Final Year Placement</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Students</h2>
+    <ul>
+        {% for s in students %}
+        <li>{{ s.usn }} - {{ s.name }} - {{ s.company_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Placed in Amazon</h2>
+    <ul>
+        {% for s in amazon %}
+        <li>{{ s.usn }} - {{ s.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

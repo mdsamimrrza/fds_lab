@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q2 CIE</title>
+</head>
+
+<body>
+    <h1>Add Student CIE</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Students</h2>
+    <table border="1">
+        <tr>
+            <th>USN</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>CIE</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.usn }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.subject_code }}</td>
+            <td>{{ s.cie_marks }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>CIE less than 20</h2>
+    <ul>
+        {% for s in low_cie %}
+        <li>{{ s.usn }} - {{ s.name }} - {{ s.cie_marks }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

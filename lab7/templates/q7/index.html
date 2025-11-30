@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q7 Faculty</title>
+</head>
+
+<body>
+    <h1>Faculty Entry</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Faculty</h2>
+    <ul>
+        {% for f in all_faculty %}
+        <li>{{ f.faculty_id }} - {{ f.title }} {{ f.name }} - {{ f.branch }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>CSE Professors</h2>
+    <ul>
+        {% for f in cse_prof %}
+        <li>{{ f.faculty_id }} - {{ f.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q4 HR</title>
+</head>
+
+<body>
+    <h1>Add Employee</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Employees</h2>
+    <ul>
+        {% for e in employees %}
+        <li>{{ e.name }} - {{ e.salary }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Salary greater than 50000</h2>
+    <ul>
+        {% for e in high_salary %}
+        <li>{{ e.name }} - {{ e.salary }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

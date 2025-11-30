@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q8 Update Grade</title>
+</head>
+
+<body>
+    <h1>Add Student</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ add_form.as_p }}
+        <button type="submit" name="add_student" value="1">Save</button>
+    </form>
+
+    <h1>Update Grade By Name</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ update_form.as_p }}
+        <button type="submit" name="update_grade" value="1">Update</button>
+    </form>
+
+    <h2>All Students</h2>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>USN</th>
+            <th>Dept</th>
+            <th>Grade</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.usn }}</td>
+            <td>{{ s.dept }}</td>
+            <td>{{ s.grade }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

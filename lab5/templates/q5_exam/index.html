@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Q5 Exam</title>
+</head>
+
+<body>
+    <h1>Exam Student</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Students</h2>
+    <ul>
+        {% for s in students %}
+        <li>{{ s.usn }} - {{ s.name }} - {{ s.grade }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>O Grade Students</h2>
+    <ul>
+        {% for s in o_grade %}
+        <li>{{ s.usn }} - {{ s.name }} - {{ s.grade }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
